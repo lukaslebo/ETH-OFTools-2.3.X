@@ -21,7 +21,9 @@ In order to use this inlet generator with OpenFOAM:
   );
 
 2. Call the inlet generator from your velocity boundary condition for your inlet:
-  inlet
+  
+```cpp
+    <nameOfInletPatch>
     {
         type            filteredNoiseInflowGenerator;
         value           uniform ( 0 0 0 ); // placeholder
@@ -29,6 +31,7 @@ In order to use this inlet generator with OpenFOAM:
         correlationShape gaussian; // other correlationShapes are exp or doubleExp
         //Virtual grid has the size of the smalles inlet patch cell.
         gridFactor 2; //optional: Use the gridFactor to scale the virtual grid size.
-    }
+    }
+```
 
-3. Make sure you include a directory constant/boundaryData/\<nameOfInletPatch\>/ which contains the files for R, L and ref. An example case is found at: https://github.com/ETH-BuildingPhysics/ETH-OFTools-2.3.X/tree/master/Tutorials/FilteredNoiseInflowGenerator
+3. Make sure you include a directory `constant/boundaryData/<nameOfInletPatch>/` which contains the files for `R`, `L` and `ref`. An example case is found at: https://github.com/ETH-BuildingPhysics/ETH-OFTools-2.3.X/tree/master/Tutorials/FilteredNoiseInflowGenerator
