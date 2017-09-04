@@ -167,7 +167,7 @@ class inflowGenerator
     public:
 
     //- Runtime type information
-    TypeName("filteredNoiseInflowGeneratorSelective");
+    TypeName("filteredNoiseInflowGenerator");
 
 
    // Constructors
