@@ -1,11 +1,14 @@
+# Update by Lukas Lebovitz (2017)
+
 This variant of the filtered noise inflow generator uses the proposed method of selective filtering. It also uses a parallel implementation of the getRandomField function, which generates the random number field for each timestep.
 
-Selective filtering only filters the virtual grid coordinates which are nearest to actual mesh faces. This can heavily improve performance for grids that have several refinements in vertical direction (z-axis). 
+Selective filtering only filters the virtual grid coordinates which are nearest to actual mesh faces. This can heavily improve performance for grids that are non-uniform (i.e. meshes with refinements). 
 
 This version fixes a bug that crashes the simulation sometimes when the number of indices on the virtual grid can't be split equally to all processors.
 
 Furthermore the indices are now distributed to the processors according to their computational load which is depending on the corresponding integral length scales. This only works if the integral length scales are vertically increasing (in z-direction).
 
+### Instructions:
 
 In order to use this inlet generator with OpenFOAM:
 
@@ -14,13 +17,13 @@ In order to use this inlet generator with OpenFOAM:
 1. Include this in your controldict:
   libs
   (
-      "libfilteredNoiseInflowGeneratorSelective.so"
+      "libfilteredNoiseInflowGenerator.so"
   );
 
 2. Call the inlet generator from your velocity boundary condition for your inlet:
   inlet
     {
-        type            filteredNoiseInflowGeneratorSelective;
+        type            filteredNoiseInflowGenerator;
         value           uniform ( 0 0 0 ); // placeholder
         //perturb 1e-6; //optional: used for the interpolation. Change this value if there are artifacts on the inlet patch
         correlationShape gaussian; // other correlationShapes are exp or doubleExp
