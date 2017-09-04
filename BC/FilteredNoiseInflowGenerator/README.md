@@ -1,4 +1,4 @@
-# Update by Lukas Lebovitz (2017)
+# Update by Lukas Lebovitz (08/2017)
 
 This variant of the filtered noise inflow generator uses the proposed method of selective filtering. It also uses a parallel implementation of the getRandomField function, which generates the random number field for each timestep.
 
