@@ -1,12 +1,16 @@
 # Update by Lukas Lebovitz (08/2017)
 
-This variant of the filtered noise inflow generator uses the proposed method of selective filtering. It also uses a parallel implementation of the getRandomField function, which generates the random number field for each timestep.
+- This variant of the filtered noise inflow generator uses the proposed method of selective filtering. Selective filtering only filters the virtual grid coordinates which are nearest to actual mesh faces. This can heavily improve performance for grids that are non-uniform (i.e. meshes with refinements). 
 
-Selective filtering only filters the virtual grid coordinates which are nearest to actual mesh faces. This can heavily improve performance for grids that are non-uniform (i.e. meshes with refinements). 
+- This version fixes a bug that crashes the simulation sometimes when the number of indices on the virtual grid can't be split equally to all processors.
 
-This version fixes a bug that crashes the simulation sometimes when the number of indices on the virtual grid can't be split equally to all processors.
+- The `getRandomField()` function now works in parallel and distributes random number generation on all available processors.
 
-Furthermore the indices are now distributed to the processors according to their computational load which is depending on the corresponding integral length scales. This only works if the integral length scales are vertically increasing (in z-direction).
+- This version fixes a bug that crashes the simulation sometimes when the number of indices on the virtual grid can't be split equally to all processors.
+
+- Furthermore the indices are now distributed to the processors according to their computational load which is depending on the corresponding integral length scales. This only works if the integral length scales are vertically increasing (in z-direction).
+
+- Some minor modifications.
 
 ### Instructions:
 
