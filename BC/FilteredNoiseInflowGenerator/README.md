@@ -31,4 +31,4 @@ In order to use this inlet generator with OpenFOAM:
         gridFactor 2; //optional: Use the gridFactor to scale the virtual grid size.
     }
 
-3. Make sure you include a directory constant/boundaryData/<nameOfInletPatch>/ which contains the files for R, L and ref. An example case is found at: https://github.com/ETH-BuildingPhysics/ETH-OFTools-2.3.X/tree/master/Tutorials/FilteredNoiseInflowGenerator
+3. Make sure you include a directory constant/boundaryData/\<nameOfInletPatch\>/ which contains the files for R, L and ref. An example case is found at: https://github.com/ETH-BuildingPhysics/ETH-OFTools-2.3.X/tree/master/Tutorials/FilteredNoiseInflowGenerator
