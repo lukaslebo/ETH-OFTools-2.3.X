@@ -227,7 +227,7 @@ inflowGenerator
 // * * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * * //
 /*-------------------------------------------------------------------------------*\
                             FilteredNoiseInflowGenerator
-                            optimised for Performance
+                            using Selective Filtering
 \*-------------------------------------------------------------------------------*/
 
 // * * * * * * * * * * * * * * * * autoSizeGrid  * * * * * * * * * * * * * * //
